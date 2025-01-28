@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indo Portal News</title>
+  <!-- Swiper CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+  />
+  <style>
+    /* CSS PENCARIAN */
+    .search-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-container input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  font-size: 16px;
+}
+
+.search-container button {
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+}
+
+.search-container button:hover {
+  background-color: #0056b3;
+}
+
+    /* AKHIR CSS PENCARIAN */
+
+    /* button baca selengkapnya */
+    .card-content button {
+      padding: 10px 15px;
+      margin-top: 15px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 5px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    /* Hover effect to simulate pressing */
+    .card-content button:hover {
+      transform: translateY(2px);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Active state (when button is clicked) */
+    .card-content button:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Custom styling for the cards and layout */
+    .card {
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 100%;
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 15px;
+    }
+    .card-content h2 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .card-content p {
+      font-size: 14px;
+      color: #555;
+    }
+    .card-content button {
+      margin-top: 10px;
+    }
+
+    /* Styling for the BTSquare Section */
+    .btsquare-card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .btsquare-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .btsquare-card-content {
+      padding: 10px;
+    }
+    .btsquare-card-content h3 {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .btsquare-card-content p {
+      font-size: 12px;
+      color: #555;
+    }
+    .btsquare-card-content button {
+      padding: 8px 12px;
+      margin-top: 10px;
+    }
+
+  </style>
+<nav style="background-color: #333; padding: 10px 0; position: sticky; top: 0; z-index: 1000; width: 100%; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+  <div class="container" style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto;">
+    <!-- Logo Section -->
+    <div style="display: flex; align-items: center;">
+      <img src="assets/logo.png" alt="News Portal Logo" style="height: 100px; width: 150px;" />
+      <span style="color: white; font-size: 24px; font-weight: bold; margin-left: 50px;">EVERYTHING IS IMPORTANT</span>
+    </div>
+    
+    <!-- MENU BAR START -->
+    <ul style="display: flex; list-style: none; margin: 0; padding: 0;">
+      <li style="margin: 0 20px;">
+        <a href="#home" style="color: white; text-decoration: none; font-size: 16px;">Home</a>
+      </li>
+      <li style="margin: 0 20px;">
+        <a href="#world" style="color: white; text-decoration: none; font-size: 16px;">World</a>
+      </li>
+      <li style="margin: 0 20px;">
+        <a href="#technology" style="color: white; text-decoration: none; font-size: 16px;">Technology</a>
+      </li>
+      <li style="margin: 0 20px;">
+        <a href="#sports" style="color: white; text-decoration: none; font-size: 16px;">Sports</a>
+      </li>
+      <li style="margin: 0 20px;">
+        <a href="#entertainment" style="color: white; text-decoration: none; font-size: 16px;">Entertainment</a>
+      </li>
+      <li style="margin: 0 20px;">
+        <a href="#contact" style="color: white; text-decoration: none; font-size: 16px;">Contact</a>
+      </li>
+    </ul>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Cari berita..." onkeyup="searchFunction()">
+      <button onclick="searchFunction()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="11" cy="11" r="8" stroke-width="2"></circle>
+          <line x1="16" y1="16" x2="22" y2="22" stroke-width="2"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<!-- menu bar END-->
+</head>
+<body>
+  <div class="container" style="max-width: 1200px; margin: auto; padding:20px;">
+    <!-- Search bar -->
+
+    
+
+    <!-- Breaking News Section -->
+    <div style="margin-bottom: 30px; overflow: hidden; border-radius: 20px;">
+      <img src="assets/HEADLINE1.webp" alt="Breaking News" style="width: 100%; height: 300px; object-fit: cover;"/>
+      <div class="card-content">
+        <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">
+          BREAKING NEWS: Warga Negara Indonesia Ditembak di Perairan Malaysia
+        </h1>
+        <p>Fakta dan Kronologi ditembaknya WNI diperairan malaysia</p>
+        <a href="Headline.html"><button style="padding: 10px 15px; margin-top: 15px;">Baca Selengkapnya</button></a>
+      </div>
+    </div>
+
+    <!-- Swiper Carousel -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <!-- Card Items -->
+        <!-- Card Item 1 -->
+        <div class="swiper-slide">
+          <div class="card">
+            <img src="assets/card1.webp" alt="News" />
+            <div class="card-content">
+              <h2>Berita Terbaru Hari Ini</h2>
+              <p>Ringkasan berita terbaru dan terpopuler hari ini.</p>
+              <button>Baca Selengkapnya</button>
+            </div>
+          </div>
+        </div>
+          <!-- Card Item 2 -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="assets/card1.webp" alt="Economy" />
+              <div class="card-content">
+                <h2>Ekonomi Meningkat Pesat</h2>
+                <p>Perekonomian nasional mengalami peningkatan signifikan.</p>
+                <button>Baca Selengkapnya</button>
+              </div>
+            </div>
+          </div>
+          <!-- Card Item 3 -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="assets/card1.webp" alt="Sports" />
+              <div class="card-content">
+                <h2>Olahraga: Tim Nasional Berjaya</h2>
+                <p>Tim nasional meraih kemenangan dalam laga penting.</p>
+                <button>Baca Selengkapnya</button>
+              </div>
+            </div>
+          </div>
+          <!-- Card Item 4 -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="assets/card1.webp" alt="Technology" />
+              <div class="card-content">
+                <h2>Teknologi Terbaru di Tahun Ini</h2>
+                <p>Inovasi teknologi yang akan mengubah dunia.</p>
+                <button>Baca Selengkapnya</button>
+              </div>
+            </div>
+          </div>
+          <!-- Card Item 5 -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="assets/card1.webp" alt="Politics" />
+              <div class="card-content">
+                <h2>Politik: Kebijakan Baru Pemerintah</h2>
+                <p>Kebijakan terbaru yang berdampak pada masyarakat luas.</p>
+                <button>Baca Selengkapnya</button>
+              </div>
+            </div>
+          </div>
+          <!-- Card Item 6 -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="assets/card1.webp" alt="Health" />
+              <div class="card-content">
+                <h2>Kesehatan: Tips Hidup Sehat</h2>
+                <p>Cara menjaga kesehatan tubuh dan pikiran.</p>
+                <button>Baca Selengkapnya</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- More Swiper items... -->
+      </div>
+
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- BTSquare Section -->
+
+    <div class="btsquare-card">
+      <div class="fbo2 f13 red" >
+        <a href="https://m.tribunnews.com/topic/konflik-palestina-vs-israel" title="Konflik Palestina Vs Israel" style="color: #000000; margin-left: 15px;">
+          Konflik Palestina Vs Israel 
+        </a>
+      </div>
+      <h3>
+        <a href="https://m.tribunnews.com/internasional/2025/01/27/kepulangan-bersejarah-warga-palestina-ke-gaza-utara-bersukacita-datangi-rumah-yang-hancur" title="Kepulangan 'Bersejarah' Warga Palestina ke Gaza Utara, Bersukacita Datangi Rumah yang Hancur" style="color: #000000; margin-left: 15px;">
+          Kepulangan 'Bersejarah' Warga Palestina ke Gaza Utara, Bersukacita Datangi Rumah yang Hancur
+        </a>
+      </h3>
+      <div class="grey pt5 dip">
+        <h4><a href="https://m.tribunnews.com/internasional" title="Internasional" class="fbo f12 red" style="color: #000000; margin-left: 15px;">Internasional</a></h4>
+      </div>
+    </div>
+    <!-- Repeat for other BTSquare items... -->
+  </div>
+  <div class="btsquare-card">
+    <div class="fbo2 f13 red" >
+      <a href="https://m.tribunnews.com/topic/konflik-palestina-vs-israel" title="Konflik Palestina Vs Israel" style="color: #000000; margin-left: 15px;">
+        Konflik Palestina Vs Israel 
+      </a>
+    </div>
+    <h3>
+      <a href="https://m.tribunnews.com/internasional/2025/01/27/kepulangan-bersejarah-warga-palestina-ke-gaza-utara-bersukacita-datangi-rumah-yang-hancur" title="Kepulangan 'Bersejarah' Warga Palestina ke Gaza Utara, Bersukacita Datangi Rumah yang Hancur" style="color: #000000; margin-left: 15px;">
+        Kepulangan 'Bersejarah' Warga Palestina ke Gaza Utara, Bersukacita Datangi Rumah yang Hancur
+      </a>
+    </h3>
+    <div class="grey pt5 dip">
+      <h4><a href="https://m.tribunnews.com/internasional" title="Internasional" class="fbo f12 red" style="color: #000000; margin-left: 15px;">Internasional</a></h4>
+    </div>
+  </div>
+  <!-- Repeat for other BTSquare items... -->
+</div>
+
+<div class="btsquare-card">
+  <div class="fbo2 f13 red" >
+    <a href="https://m.tribunnews.com/topic/konflik-palestina-vs-israel" title="Konflik Palestina Vs Israel" style="color: #000000; margin-left: 15px;">
+      Konflik Palestina Vs Israel 
+    </a>
+  </div>
+  <h3>
+    <a href="https://m.tribunnews.com/internasional/2025/01/27/kepulangan-bersejarah-warga-palestina-ke-gaza-utara-bersukacita-datangi-rumah-yang-hancur" title="Kepulangan 'Bersejarah' Warga Palestina ke Gaza Utara, Bersukacita Datangi Rumah yang Hancur" style="color: #000000; margin-left: 15px;">
+      Kepulangan 'Bersejarah' Warga Palestina ke Gaza Utara, Bersukacita Datangi Rumah yang Hancur
+    </a>
+  </h3>
+  <div class="grey pt5 dip">
+    <h4><a href="https://m.tribunnews.com/internasional" title="Internasional" class="fbo f12 red" style="color: #000000; margin-left: 15px;">Internasional</a></h4>
+  </div>
+</div>
+<!-- Repeat for other BTSquare items... -->
+</div>
+
+<div class="btsquare-card">
+  <div class="fbo2 f13 red" >
+    <a href="https://m.tribunnews.com/topic/konflik-palestina-vs-israel" title="Konflik Palestina Vs Israel" style="color: #000000; margin-left: 15px;">
+      Konflik Palestina Vs Israel 
+    </a>
+  </div>
+  <h3>
+    <a href="https://m.tribunnews.com/internasional/2025/01/27/kepulangan-bersejarah-warga-palestina-ke-gaza-utara-bersukacita-datangi-rumah-yang-hancur" title="Kepulangan 'Bersejarah' Warga Palestina ke Gaza Utara, Bersukacita Datangi Rumah yang Hancur" style="color: #000000; margin-left: 15px;">
+      Kepulangan 'Bersejarah' Warga Palestina ke Gaza Utara, Bersukacita Datangi Rumah yang Hancur
+    </a>
+  </h3>
+  <div class="grey pt5 dip">
+    <h4><a href="https://m.tribunnews.com/internasional" title="Internasional" class="fbo f12 red" style="color: #000000; margin-left: 15px;">Internasional</a></h4>
+  </div>
+</div>
+<!-- Repeat for other BTSquare items... -->
+</div>
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper-container', {
+      spaceBetween: 30,
+      slidesPerView: 4,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  </script>
+
+<script>
+  function searchFunction() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let articles = document.querySelectorAll(".card-content h2");
+
+    articles.forEach((article) => {
+      let text = article.textContent.toLowerCase();
+      let card = article.closest(".card");
+      if (text.includes(input)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+</script>
+
+</body>
+<footer style="background-color: #333; color: white; text-align: center; padding: 15px 0; margin-top: 20px;">
+  <p style="margin: 0;">&copy; 2025 Indo Portal News. All Rights Reserved.</p>
+  <p style="margin: 0;">Designed & Developed by YourCompanyName</p>
+</footer>
+
+</html>
